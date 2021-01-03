@@ -4,11 +4,11 @@ const BinarySearchTree = require('./binarySearchTree');
 
 let testFunction = (countArr, nameOfFunction, callback) => {
     countArr[1]++;
-    let passBoolean = 'FALSE';
+    let passBoolean = 'FALSE ';
     let errorMessage = null;
     try{
         if(callback()){
-            passBoolean = 'TRUE';
+            passBoolean = 'TRUE ';
             countArr[0]++;
         }
     }catch(e){
