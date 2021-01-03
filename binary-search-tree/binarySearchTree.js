@@ -1,4 +1,4 @@
-const TreeNode = require('./treeNode');
+const Node = require('./Node');
 
 class BinarySearchTree{
 
@@ -8,7 +8,7 @@ class BinarySearchTree{
     }
 
     insert(item){
-        let node = new TreeNode(item);
+        let node = new Node(item);
 
         if(this.root == null){
             this.root = node;

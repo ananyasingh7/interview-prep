@@ -1,4 +1,4 @@
-class TreeNode{
+class Node{
 
     constructor(item){
         if(item){
@@ -13,4 +13,4 @@ class TreeNode{
 
 }
 
-module.exports = TreeNode;
+module.exports = Node;
