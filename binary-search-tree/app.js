@@ -188,3 +188,151 @@ testFunction(totalCount, 'returns false when element does not exist in binary se
 console.log('PASSED: ' + totalCount[0] + ' / ' + totalCount[1], '\n\n');
 
 
+console.log('BinarySearchTree Delete Method');
+totalCount = [0, 0];
+
+testFunction(totalCount, 'has delete method', () => {
+    let bst = new BinarySearchTree();
+    return Object.prototype.toString.apply(bst.delete) === '[object Function]';
+});
+
+
+testFunction(totalCount, 'Node to be deleted is leaf', () => {
+    let bst = new BinarySearchTree();
+    bst.insert(50);
+    bst.insert(30);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(40);
+    bst.insert(60);
+    bst.insert(80);
+    bst.delete(20);
+    return bst.search(20) === false;
+});
+
+testFunction(totalCount, 'Node to be deleted has only one child TEST 1', () => {
+    let bst = new BinarySearchTree();
+    bst.insert(50);
+    bst.insert(30);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(40);
+    bst.insert(60);
+    bst.insert(80);
+    bst.delete(20);
+    bst.delete(30);
+    return bst.search(30) === false && bst.root.leftNode.item == 40;
+});
+
+testFunction(totalCount, 'Node to be deleted has only one child TEST 2', () => {
+    let bst = new BinarySearchTree();
+    bst.insert(10);
+    bst.insert(20);
+    bst.insert(30);
+    bst.insert(40);
+    bst.delete(20);
+    return bst.search(20) === false && bst.root.rightNode.item == 30;
+});
+
+testFunction(totalCount, 'Node to be deleted has only one child TEST 3', () => {
+    let bst = new BinarySearchTree();
+    bst.insert(100);
+    bst.insert(90);
+    bst.insert(80);
+    bst.insert(70);
+    bst.insert(60);
+    bst.delete(70);
+    return bst.search(70) === false && bst.root.leftNode.leftNode.leftNode.item == 60;
+});
+
+testFunction(totalCount, 'Node to be deleted has two children ROOT test', () => {
+    let bst = new BinarySearchTree();
+    bst.insert(50);
+    bst.insert(35);
+    bst.insert(60);
+    bst.insert(30);
+    bst.insert(45);
+    bst.insert(55);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(42);
+    bst.insert(48);
+    bst.insert(54);
+    bst.insert(75);
+    bst.insert(10);
+    bst.insert(22);
+    bst.insert(49);
+    bst.delete(50);
+    bst.delete(49);
+    bst.delete(48);
+    bst.delete(45);
+    bst.delete(42);
+    bst.delete(35);
+    bst.delete(30);
+    bst.delete(22);
+    bst.delete(20);
+    bst.delete(10);
+    bst.delete(60);
+    bst.delete(55);
+    bst.delete(54);
+    bst.delete(70);
+    //bst.checkTree();
+    //console.log(bst);
+    return bst.search(50) === false && bst.search(10) === false;
+    //return bst.search(50) === false && bst.root.item == 60 && bst.root.leftNode.item == 40 && bst.root.rightNode.item == 70;
+});
+
+testFunction(totalCount, 'Node to be deleted has two children CHILDREN test', () => {
+    let bst = new BinarySearchTree();
+    bst.insert(50);
+    bst.insert(35);
+    bst.insert(60);
+    bst.insert(30);
+    bst.insert(45);
+    bst.insert(55);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(42);
+    bst.insert(48);
+    bst.insert(75);
+    bst.insert(10);
+    bst.insert(22);
+    bst.insert(49);
+    bst.insert(65);
+    bst.insert(57);
+    bst.insert(53);
+    bst.delete(20);
+    bst.delete(45);
+    bst.delete(35);
+    bst.delete(30);
+    bst.delete(60);
+    bst.delete(50);
+    bst.delete(22);
+    bst.delete(57);
+    bst.delete(70);
+    bst.delete(49);
+    bst.delete(65);
+    console.log(bst.root);
+    //console.log(bst.root.leftNode);
+    return bst.search(20) === false;
+});
+
+
+/*
+testFunction(totalCount, 'Node to be deleted has two children', () => {
+    let bst = new BinarySearchTree();
+    bst.insert(50);
+    bst.insert(30);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(40);
+    bst.insert(60);
+    bst.insert(80);
+    bst.delete(50);
+    return bst.search(50) === false && bst.root.item == 60 && bst.root.leftNode.item == 40 && bst.root.rightNode.item == 70;
+});
+*/
+
+console.log('PASSED: ' + totalCount[0] + ' / ' + totalCount[1], '\n\n');
+
+
